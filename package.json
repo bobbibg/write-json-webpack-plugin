@@ -1,0 +1,22 @@
+{
+  "name": "write-json-webpack-plugin",
+  "version": "1.0.0",
+  "description": "A webpack plugin that emits a json file based on input.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HearstUK/commercial-modules.git"
+  },
+  "keywords": [
+    "mediator"
+  ],
+  "author": "Rob Barns-Graham",
+  "bugs": {
+    "url": "https://github.com/HearstUK/commercial-modules/issues"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/HearstUK/commercial-modules/tree/develop/webpack/write-json-webpack-plugin#readme",
+  "dependencies": {
+    "mkdirp": "^0.5.1"
+  }
+}
