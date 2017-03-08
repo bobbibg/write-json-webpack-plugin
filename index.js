@@ -1,4 +1,3 @@
-var fs = require('fs');
 var path = require('path');
 
 var Plugin = function(options) {
@@ -9,25 +8,19 @@ var Plugin = function(options) {
 };
 
 Plugin.prototype.apply = function(compiler) {
-    var _this, output;
-
-    _this = this;
-    output = path.join(_this.options.path, _this.options.filename);
-
-    compiler.plugin('after-emit', function(compilation, callback) {
-        _this.createObj(compilation, output, _this.options.object, callback);
-    });
+    compiler.plugin('emit', this.createObj.bind(this));
 };
 
-Plugin.prototype.createObj = function(compilation, outputFull, object, callback) {
-    var json = JSON.stringify(object);
+Plugin.prototype.createObj = function(compilation, callback) {
+    var json = JSON.stringify(this.options.object);
+    var output = path.join(this.options.path, this.options.filename);
 
-    fs.writeFile(outputFull, json, function(err) {
-        if (err) {
-            compilation.errors.push(new Error('Write JSON Webpack Plugin: Unable to save to ' + outputFull));
-        }
-        callback();
-    });
+    compilation.assets[output] = {
+      source: function() { return json; },
+      size: function() { return json.length; }
+    }
+
+    callback();
 };
 
 module.exports = Plugin;
