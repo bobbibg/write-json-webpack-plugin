@@ -14,19 +14,19 @@ Plugin.prototype.apply = function(compiler) {
     _this = this;
     output = path.join(_this.options.path, _this.options.filename);
 
-    compiler.plugin('emit', function(compilation, callback) {
-        _this.createObj(compilation, output, _this.options.object);
-        callback();
+    compiler.plugin('after-emit', function(compilation, callback) {
+        _this.createObj(compilation, output, _this.options.object, callback);
     });
 };
 
-Plugin.prototype.createObj = function(compilation, outputFull, object) {
+Plugin.prototype.createObj = function(compilation, outputFull, object, callback) {
     var json = JSON.stringify(object);
 
     fs.writeFile(outputFull, json, function(err) {
         if (err) {
             compilation.errors.push(new Error('Write JSON Webpack Plugin: Unable to save to ' + outputFull));
         }
+        callback();
     });
 };
 
