@@ -29,6 +29,7 @@ new WriteJsonPlugin({
     object: [object]
     path: 'public',
     // default output is timestamp.json
-    filename: 'timestamp.json'
+    filename: 'timestamp.json',
+    pretty: true // makes file human-readable (default false)
 })
 ```
