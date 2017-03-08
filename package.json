@@ -5,17 +5,17 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HearstUK/commercial-modules.git"
+    "url": "https://github.com/robertbg/write-json-webpack-plugin.git"
   },
   "keywords": [
     "mediator"
   ],
   "author": "Rob Barns-Graham",
   "bugs": {
-    "url": "https://github.com/HearstUK/commercial-modules/issues"
+    "url": "https://github.com/robertbg/write-json-webpack-plugin/issues"
   },
   "license": "MIT",
-  "homepage": "https://github.com/HearstUK/commercial-modules/tree/develop/webpack/write-json-webpack-plugin#readme",
+  "homepage": "https://github.com/robertbg/write-json-webpack-plugin",
   "dependencies": {
     "mkdirp": "^0.5.1"
   }
