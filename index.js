@@ -1,6 +1,5 @@
 var fs = require('fs');
 var path = require('path');
-var mkdirp = require('mkdirp');
 
 var Plugin = function(options) {
     this.options = options || {};
@@ -24,12 +23,10 @@ Plugin.prototype.apply = function(compiler) {
 Plugin.prototype.createObj = function(compiler, outputFull, object) {
     json = JSON.stringify(object);
 
-    mkdirp('/tmp/some/path/foo', function(err) {
-        fs.writeFile(outputFull, json, function(err) {
-            if (err) {
-                compiler.errors.push(new Error('Write JSON Webpack Plugin: Unable to save to ' + outputFull));
-            }
-        });
+    fs.writeFile(outputFull, json, function(err) {
+        if (err) {
+            compiler.errors.push(new Error('Write JSON Webpack Plugin: Unable to save to ' + outputFull));
+        }
     });
 };
 
