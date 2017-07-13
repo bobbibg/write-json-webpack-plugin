@@ -27,8 +27,9 @@ Write JSON Webpack Plugin accepts three options, the object to write, the path a
 ```js
 new WriteJsonPlugin({
     object: [object]
-    path: path.join(__dirname, 'public'),
+    path: 'public',
     // default output is timestamp.json
-    filename: 'timestamp.json'
+    filename: 'timestamp.json',
+    pretty: true // makes file human-readable (default false)
 })
 ```

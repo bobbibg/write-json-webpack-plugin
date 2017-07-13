@@ -15,8 +15,5 @@
     "url": "https://github.com/HearstUK/commercial-modules/issues"
   },
   "license": "MIT",
-  "homepage": "https://github.com/HearstUK/commercial-modules/tree/develop/webpack/write-json-webpack-plugin#readme",
-  "dependencies": {
-    "mkdirp": "^0.5.1"
-  }
+  "homepage": "https://github.com/HearstUK/commercial-modules/tree/develop/webpack/write-json-webpack-plugin#readme"
 }

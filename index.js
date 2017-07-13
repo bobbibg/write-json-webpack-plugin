@@ -1,36 +1,27 @@
-var fs = require('fs');
 var path = require('path');
-var mkdirp = require('mkdirp');
 
 var Plugin = function(options) {
     this.options = options || {};
     this.options.object = options.object || {};
     this.options.path = options.path || '';
     this.options.filename = options.filename || 'timestamp.json';
+    this.options.pretty = options.pretty;
 };
 
 Plugin.prototype.apply = function(compiler) {
-    var _this, output;
-
-    _this = this;
-    output = path.join(_this.options.path, _this.options.filename);
-
-    compiler.plugin('emit', function(compiler, callback) {
-        _this.createObj(compiler, output, _this.options.object);
-        callback();
-    });
+    compiler.plugin('emit', this.createObj.bind(this));
 };
 
-Plugin.prototype.createObj = function(compiler, outputFull, object) {
-    json = JSON.stringify(object);
+Plugin.prototype.createObj = function(compilation, callback) {
+    var json = JSON.stringify(this.options.object, null, this.options.pretty ? 2 : null);
+    var output = path.join(this.options.path, this.options.filename);
 
-    mkdirp('/tmp/some/path/foo', function(err) {
-        fs.writeFile(outputFull, json, function(err) {
-            if (err) {
-                compiler.errors.push(new Error('Write JSON Webpack Plugin: Unable to save to ' + outputFull));
-            }
-        });
-    });
+    compilation.assets[output] = {
+      source: function() { return json; },
+      size: function() { return json.length; }
+    }
+
+    callback();
 };
 
 module.exports = Plugin;
