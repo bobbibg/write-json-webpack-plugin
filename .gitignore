@@ -2,3 +2,4 @@
 .DS_Store
 .idea
 npm-debug.log
+yarn-error.log
