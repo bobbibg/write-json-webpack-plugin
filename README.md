@@ -1,5 +1,7 @@
 # Write JSON Webpack Plugin
 
+[![Build Status](https://travis-ci.org/aponyx/write-json-webpack-plugin.svg?branch=master)](https://travis-ci.org/aponyx/write-json-webpack-plugin)
+
 Emits a JSON file that contains data passed through to it
 
 ## Install
@@ -12,7 +14,6 @@ npm install --save-dev write-json-webpack-plugin
 
 ```js
 // Add to your Webpack config file
-var path = require('path');
 var WriteJsonPlugin = require('write-json-webpack-plugin');
 
 module.exports = {
