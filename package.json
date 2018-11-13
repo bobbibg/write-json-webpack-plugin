@@ -1,6 +1,6 @@
 {
   "name": "write-json-webpack-plugin",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A webpack plugin that emits a json file based on input.",
   "main": "lib/index.js",
   "repository": "git+https://github.com/robertbg/write-json-webpack-plugin",
