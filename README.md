@@ -1,6 +1,6 @@
 # Write JSON Webpack Plugin
 
-[![Build Status](https://travis-ci.com/aponyx/write-json-webpack-plugin.svg?branch=master)](https://travis-ci.com/aponyx/write-json-webpack-plugin)
+[![Build Status](https://travis-ci.com/robertbg/write-json-webpack-plugin.svg?branch=master)](https://travis-ci.com/robertbg/write-json-webpack-plugin)
 
 Emits a JSON file that contains data passed through to it
 
