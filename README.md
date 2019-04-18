@@ -31,6 +31,8 @@ new WriteJsonPlugin({
     path: 'public',
     // default output is timestamp.json
     filename: 'timestamp.json',
+    // [optional] merge (and overwrite) keys from given JSON file with given `object`
+    extendFile: path.join(__dirname, 'manifest.json'),
     pretty: true // makes file human-readable (default false)
 })
 ```
